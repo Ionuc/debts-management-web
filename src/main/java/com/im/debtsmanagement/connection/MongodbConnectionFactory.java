@@ -13,8 +13,7 @@ public final class MongodbConnectionFactory {
 	public static MongoDatabase create()
 	{
 		MongoClientURI uri  = new MongoClientURI("mongodb://ionut.mesaros:ionut.mesaros@ds057954.mongolab.com:57954/debts_management"); 
-        MongoClient client = new MongoClient(uri);
-        MongoDatabase db = client.getDatabase(uri.getDatabase());
+        MongoDatabase db = new MongoClient(uri).getDatabase(uri.getDatabase());
         return db;
 	}
 }

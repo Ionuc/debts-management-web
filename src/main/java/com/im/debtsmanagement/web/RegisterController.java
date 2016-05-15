@@ -20,39 +20,34 @@ import com.im.debtsmanagement.service.dao.UserDataService;
 
 @Controller
 @SessionAttributes("user")
-public class LoginController {
+public class RegisterController {
 
-	private final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	private final Logger logger = LoggerFactory.getLogger(RegisterController.class);
 	private final UserDataService userDataService;
 	
 	@Autowired
-	public LoginController(UserDataService userDataService) {
+	public RegisterController(UserDataService userDataService) {
 		this.userDataService = userDataService;
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String loginGet(Model model) {
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String registerGet(Model model) {
 		 model.addAttribute("user", new User());
-		logger.info("Login GET");
-		return "login";
+		logger.info("Register GET");
+		return "register";
 	}
 	
-	@RequestMapping(params = "login", method = RequestMethod.POST)
-	public String loginPost(HttpServletRequest request, @Valid @ModelAttribute("user") User user, BindingResult result, SessionStatus status) {
+	@RequestMapping(params = "register", method = RequestMethod.POST)
+	public String registerPost(HttpServletRequest request, @Valid @ModelAttribute("user") User user, BindingResult result, SessionStatus status) {
 		logger.info("Login POST");
 		logger.info("UserName : ", user.getUsername());
 		logger.info("Password : ", user.getPassword());
 		
-		User registeredUser = userDataService.login(user.getUsername(), user.getPassword());
+		userDataService.create(user, null);
 		
-		logger.info("The registered  user is ", registeredUser);
+		logger.info("User was created");
 		
-		return "login";
+		return "redirect:/login.html";
 	}
 	
-	@RequestMapping(params = "createAccount", method = RequestMethod.POST)
-	public String createAccount(HttpServletRequest request) {
-		System.out.println("register GET");
-	    return "redirect:/register.html";
-	}
 }
