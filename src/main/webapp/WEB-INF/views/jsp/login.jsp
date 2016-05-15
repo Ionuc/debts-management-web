@@ -33,7 +33,7 @@
           		<form:input path="username" placeholder="Email" cssClass="form-control input-lg" />
           		<form:input path="password" placeholder="Password" cssClass="form-control input-lg" />
           		<input type="submit" name ="login" value="Sign in" class="btn btn-lg btn-primary btn-block">
-          		<input type="submit" name ="register" value="Create account" class="btn btn-lg btn-primary btn-block">
+          		<input type="submit" name ="createAccount" value="Create account" class="btn btn-lg btn-primary btn-block">
            </form:form>
         </form>
        
