@@ -32,7 +32,7 @@ public class WelcomeController {
 		model.put("title", helloWorldService.getTitle(""));
 		model.put("msg", helloWorldService.getDesc());
 		
-		return "welcome";
+		return "index";
 	}
 
 	@RequestMapping(value = "/hello/{name:.+}", method = RequestMethod.GET)

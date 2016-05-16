@@ -5,10 +5,11 @@
 <html lang="en">
 
 <head>
-<link rel="stylesheet" type="text/css"
-	href="../../../../static/core/css/register.css">
+
 <link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	href="<%=request.getContextPath()%>/resources/css/register.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" />
 
 <!-- Website Font style -->
 <link rel="stylesheet"
@@ -113,8 +114,8 @@
 		</div>
 	</div>
 	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		src="<%=request.getContextPath()%>/resources/js/jquery-1.12.3.js"></script>
 	<script
-		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -6,9 +6,10 @@
 <head>
 <title>Debts Management</title>
 
-<link rel="stylesheet" type="text/css" href="/../../../resources/css/login.css" type="text/css">
 <link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	href="<%=request.getContextPath()%>/resources/css/login.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" />
 </head>
 
 <body>
@@ -38,8 +39,8 @@
 	</div>
 
 	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		src="<%=request.getContextPath()%>/resources/js/jquery-1.12.3.js"></script>
 	<script
-		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 </body>
 </html>
