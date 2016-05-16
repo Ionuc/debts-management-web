@@ -49,7 +49,7 @@ public class FileDataService {
 		return new StringBuilder()
 		.append("[").append(getCurrentDate()).append("]")
 		.append(" ").append(classCaller).append(" , ")
-		.append("user ").append(loggedUser.getFullname()).append(" did operation: ");
+		.append("user ").append(loggedUser.getUsername()).append(" did operation: ");
 	}
 	
 	public void writeCreateInfo(ManagementObject managementObject, String table, User loggedUser, String classCaller) {

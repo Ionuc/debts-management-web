@@ -49,7 +49,6 @@ public class UserDataService extends AbstractDataService<User> {
 		user.setName(rs.getString("name"));
 		user.setSurname(rs.getString("surname"));
 		user.setAge(Short.parseShort(rs.getString("age")));
-		user.setFullname(user.getName() + " " + user.getSurname());
 		user.setAdministrator(rs.getBoolean("administrator"));
 
 		return user;

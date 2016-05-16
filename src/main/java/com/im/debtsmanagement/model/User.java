@@ -6,7 +6,6 @@ public class User extends ManagementObject{
 	private String password;
 	private String name;
 	private String surname;
-	private String fullname;
 	private int age;
 	private boolean administrator;
 
@@ -42,14 +41,6 @@ public class User extends ManagementObject{
 		this.surname = surname;
 	}
 
-	public String getFullname() {
-		return fullname;
-	}
-
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
-	}
-
 	public int getAge() {
 		return age;
 	}
@@ -61,7 +52,7 @@ public class User extends ManagementObject{
 	@Override
 	public String toString()
 	{
-		return fullname;
+		return username;
 	}
 	
 	@Override
@@ -72,7 +63,6 @@ public class User extends ManagementObject{
 			.append(" username: ").append(username)
 			.append(", name: ").append(name)
 			.append(", surname: ").append(surname)
-			.append(", fullname: ").append(fullname)
 			.append(", age: ").append(age)
 			.append(" }");
 		return str.toString();
@@ -91,7 +81,6 @@ public class User extends ManagementObject{
 		User newUser = new User();
 		newUser.setAdministrator(administrator);
 		newUser.setAge(age);
-		newUser.setFullname(fullname);
 		newUser.setId(id);
 		newUser.setName(name);
 		newUser.setPassword(password);

@@ -10,7 +10,7 @@ public class UserCreator extends ManagementObjectCreator<User> {
 
 	@Override
 	public List<String> getAllFields() {
-		return Arrays.asList("id","username", "password", "name", "surname", "fullname", "age", "administrator");
+		return Arrays.asList("id","username", "password", "name", "surname", "age", "administrator");
 	}
 
 	@Override

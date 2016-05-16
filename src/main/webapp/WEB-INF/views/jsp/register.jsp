@@ -1,57 +1,63 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
-<spring:url value="/resources/core/css/register.css" var="coreCss" />
-<spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
-<link type="text/css" href="${bootstrapCss}" rel="stylesheet" />
-<link type="text/css" href="${coreCss}" rel="stylesheet" />
+<head>
+<link rel="stylesheet" type="text/css"
+	href="../../../../static/core/css/register.css">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+<!-- Website Font style -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
-		<!-- Website CSS style -->
-		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+<!-- Google Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Passion+One'
+	rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Oxygen'
+	rel='stylesheet' type='text/css'>
 
-		<!-- Website Font style -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-		
-		<!-- Google Fonts -->
-		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-
-		<title>Admin</title>
-	</head>
-	<body>
-		<div class="container">
-			<div class="row main">
-				<div class="panel-heading">
-	               <div class="panel-title text-center">
-	               		<h1 class="title">Company Name</h1>
-	               		<hr />
-	               	</div>
-	            </div> 
-				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="#">
-						
+<title>Admin</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row main">
+			<div class="panel-heading">
+				<div class="panel-title text-center">
+					<h1 class="title">User profile</h1>
+					<hr />
+				</div>
+			</div>
+			<div class="main-login main-center">
+				<form class="form-horizontal" method="post" action="#">
+					<form:form method="POST" action="registerUser"
+						modelAttribute="user">
 						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">Your Name</label>
+							<label for="name" class="cols-sm-2 control-label"> Name</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+									<span class="input-group-addon"> <i
+										class="fa fa-user fa" aria-hidden="true"></i>
+									</span>
+									<form:input path="name" placeholder="Enter your Name"
+										cssClass="form-control" />
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="email" class="cols-sm-2 control-label">Your Email</label>
+							<label for="email" class="cols-sm-2 control-label">
+								Surname</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+									<span class="input-group-addon"> <i
+										class="fa fa-user fa" aria-hidden="true"></i>
+									</span>
+									<form:input path="surname" placeholder="Enter your Surname"
+										cssClass="form-control" />
 								</div>
 							</div>
 						</div>
@@ -60,8 +66,10 @@
 							<label for="username" class="cols-sm-2 control-label">Username</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+									<span class="input-group-addon"><i
+										class="fa fa-users fa" aria-hidden="true"></i></span>
+									<form:input path="username" placeholder="Enter your Username"
+										cssClass="form-control" />
 								</div>
 							</div>
 						</div>
@@ -70,31 +78,43 @@
 							<label for="password" class="cols-sm-2 control-label">Password</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+									<span class="input-group-addon"><i
+										class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<form:input path="password" placeholder="Enter your Passowrd"
+										cssClass="form-control" />
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+							<label for="password" class="cols-sm-2 control-label">Age</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+									<span class="input-group-addon"> <i
+										class="fa fa-user fa" aria-hidden="true"></i>
+									</span>
+									<form:input path="age" placeholder="Enter your age"
+										cssClass="form-control" />
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group ">
-							<button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+							<input type="submit" name="register" value="Register"
+								class="btn btn-primary btn-lg btn-block login-button ">
 						</div>
-						<div class="login-register">
-				            <a href="index.php">Login</a>
-				         </div>
-					</form>
-				</div>
+						<div class="form-group ">
+							<input type="submit" name="goToLogin" value="Login"
+								class="btn btn-primary btn-lg btn-block login-button">
+						</div>
+					</form:form>
+				</form>
 			</div>
 		</div>
-	</body>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
 </html>

@@ -50,4 +50,10 @@ public class RegisterController {
 		return "redirect:/login.html";
 	}
 	
+	@RequestMapping(params = "goToLogin", method = RequestMethod.POST)
+	public String goToLogin(HttpServletRequest request) {
+		System.out.println("goToLogin POST");
+	    return "redirect:/login.html";
+	}
+	
 }
