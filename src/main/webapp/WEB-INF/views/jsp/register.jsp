@@ -102,11 +102,11 @@
 
 						<div class="form-group ">
 							<input type="submit" name="register" value="Register"
-								class="btn btn-primary btn-lg btn-block login-button ">
+								class="login-button btn btn-primary btn-lg btn-block  ">
 						</div>
 						<div class="form-group ">
 							<input type="submit" name="goToLogin" value="Login"
-								class="btn btn-primary btn-lg btn-block login-button">
+								class="login-button btn btn-primary btn-lg btn-block login-button">
 						</div>
 					</form:form>
 				</form>

@@ -6,70 +6,99 @@
 <title>Debts Management</title>
 
 <link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	href="<%=request.getContextPath()%>/resources/css/welcome.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" />
 </head>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="#">Debts Management</a>
+<body>
+
+	<div class="navbar-wrapper">
+		<div class="card hovercard">
+			<div class="card-background">
+				<img class="card-bkimg" alt=""
+					src="http://lorempixel.com/100/100/people/9/">
+			</div>
+			<div class="useravatar">
+				<img alt="" src="http://lorempixel.com/100/100/people/9/">
+			</div>
+			<div class="card-info">
+				<span class="card-title">Pamela Anderson</span>
+
+			</div>
+		</div>
+		<div class="navbar-wrapper">
+			<nav class="navbar ">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse" data-target="#navbar"
+							aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">Logo</a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="#" class="">Home</a></li>
+							<li class=" dropdown"><a href="#" class="dropdown-toggle "
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false">Departments <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li class=" dropdown"><a href="#" class="dropdown-toggle "
+										data-toggle="dropdown" role="button" aria-haspopup="true"
+										aria-expanded="false">View Departments</a></li>
+									<li><a href="#">Add New</a></li>
+								</ul></li>
+							<li><a href="#">Add New</a></li>
+							<li class=" dropdown"><a href="#" class="dropdown-toggle "
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false">Managers <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">View Managers</a></li>
+									<li><a href="#">Add New</a></li>
+								</ul></li>
+							<li class=" dropdown"><a href="#"
+								class="dropdown-toggle active" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false">Staff
+									<span class="caret"></span>
+							</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">View Staff</a></li>
+									<li><a href="#">Add New</a></li>
+									<li><a href="#">Bulk Upload</a></li>
+								</ul></li>
+							<li class=" down"><a href="#" class="dropdown-toggle active"
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false">HR <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Change Time Entry</a></li>
+									<li><a href="#">Report</a></li>
+								</ul></li>
+						</ul>
+						<ul class="nav navbar-nav pull-right">
+							<li class=" dropdown"><a href="#"
+								class="dropdown-toggle active" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false">Signed
+									in as <span class="caret"></span>
+							</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Change Password</a></li>
+									<li><a href="#">My Profile</a></li>
+								</ul></li>
+							<li class=""><a href="#">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
 		</div>
 	</div>
-</nav>
-
-<div class="jumbotron">
-	<div class="container">
-		<h1>${title}</h1>
-		<p>
-			<c:if test="${not empty msg}">
-				Hello ${msg}
-			</c:if>
-
-			<c:if test="${empty msg}">
-				Welcome Welcome!
-			</c:if>
-		<p>
-			<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-		</p>
-	</div>
-</div>
-
-<div class="container">
-
-	<div class="row">
-		<div class="col-md-4">
-			<h2>Heading</h2>
-			<p>ABC</p>
-			<p>
-				<a class="btn btn-default" href="#" role="button">View details</a>
-			</p>
-		</div>
-		<div class="col-md-4">
-			<h2>Heading</h2>
-			<p>ABC</p>
-			<p>
-				<a class="btn btn-default" href="#" role="button">View details</a>
-			</p>
-		</div>
-		<div class="col-md-4">
-			<h2>Heading</h2>
-			<p>ABC</p>
-			<p>
-				<a class="btn btn-default" href="#" role="button">View details</a>
-			</p>
-		</div>
-	</div>
-
-
-	<hr>
-	<footer>
-		<p>&copy; Mkyong.com 2015</p>
-	</footer>
-</div>
-<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script
-		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		src="<%=request.getContextPath()%>/resources/js/jquery-1.12.3.js"></script>
+	<script
+		src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 
 </body>
 </html>

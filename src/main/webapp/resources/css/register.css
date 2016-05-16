@@ -6,21 +6,20 @@
  * General styles
  */
 
-body, html{
-     height: 100%;
- 	background-repeat: no-repeat;
- 	background-color: #d3d3d3;
- 	font-family: 'Oxygen', sans-serif;
+body {
+	background: url(http://www.planwallpaper.com/static/images/6790904-free-background-wallpaper.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.main{
- 	margin-top: 10px;
-}
 
 h1.title { 
 	font-size: 50px;
 	font-family: 'Passion One', cursive; 
 	font-weight: 400; 
+	color: #8600b3
 }
 
 hr{
@@ -40,6 +39,7 @@ input,
 input::-webkit-input-placeholder {
     font-size: 11px;
     padding-top: 3px;
+    
 }
 
 .main-login{
@@ -63,10 +63,11 @@ input::-webkit-input-placeholder {
 }
 
 .login-button{
-	margin-top: 5px;
+	background-color: #8600b3
 }
 
 .login-register{
 	font-size: 11px;
 	text-align: center;
+	color: #8600b3
 }

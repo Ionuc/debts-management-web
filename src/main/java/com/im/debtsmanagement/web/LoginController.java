@@ -47,6 +47,10 @@ public class LoginController {
 		
 		logger.info("The registered  user is ", registeredUser);
 		
+		if (registeredUser != null)
+		{
+			return "redirect:/welcome.html";
+		}
 		return "login";
 	}
 	
