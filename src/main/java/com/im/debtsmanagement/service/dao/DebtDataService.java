@@ -15,8 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.im.debtsmanagement.model.Debt;
-import com.im.debtsmanagement.model.User;
+import com.im.debtsmanagement.api.Debt;
+import com.im.debtsmanagement.api.User;
 import com.im.debtsmanagement.service.dao.proxy.ProxyConnector;
 import com.im.debtsmanagement.service.modelcreator.DebtCreator;
 

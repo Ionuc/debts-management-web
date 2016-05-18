@@ -9,8 +9,8 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import com.im.debtsmanagement.api.ManagementObject;
 import com.im.debtsmanagement.connection.MongodbConnectionFactory;
-import com.im.debtsmanagement.model.ManagementObject;
 import com.im.debtsmanagement.service.modelcreator.ManagementObjectCreator;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;

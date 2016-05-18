@@ -10,8 +10,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import com.im.debtsmanagement.api.ManagementObject;
 import com.im.debtsmanagement.connection.JdbcConnectionFactory;
-import com.im.debtsmanagement.model.ManagementObject;
 import com.im.debtsmanagement.service.modelcreator.ManagementObjectCreator;
 
 public class JdbcConnector implements ProxyConnector {

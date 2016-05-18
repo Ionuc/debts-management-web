@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import com.im.debtsmanagement.model.ManagementObject;
+import com.im.debtsmanagement.api.ManagementObject;
 
 
 public abstract class ManagementObjectCreator<OBJECT extends ManagementObject> {

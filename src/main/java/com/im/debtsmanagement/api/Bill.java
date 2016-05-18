@@ -1,4 +1,4 @@
-package com.im.debtsmanagement.model;
+package com.im.debtsmanagement.api;
 
 import java.math.BigDecimal;
 import java.util.Date;

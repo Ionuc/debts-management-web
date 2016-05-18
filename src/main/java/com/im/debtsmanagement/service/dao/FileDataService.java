@@ -10,8 +10,8 @@ import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
-import com.im.debtsmanagement.model.ManagementObject;
-import com.im.debtsmanagement.model.User;
+import com.im.debtsmanagement.api.ManagementObject;
+import com.im.debtsmanagement.api.User;
 
 /**
  * Service used to read / write into a file

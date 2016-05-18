@@ -3,7 +3,7 @@ package com.im.debtsmanagement.service.modelcreator;
 import java.util.Arrays;
 import java.util.List;
 
-import com.im.debtsmanagement.model.User;
+import com.im.debtsmanagement.api.User;
 
 
 public class UserCreator extends ManagementObjectCreator<User> {

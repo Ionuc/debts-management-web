@@ -8,9 +8,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.im.debtsmanagement.model.Bill;
-import com.im.debtsmanagement.model.Debt;
-import com.im.debtsmanagement.model.User;
+import com.im.debtsmanagement.api.Bill;
+import com.im.debtsmanagement.api.Debt;
+import com.im.debtsmanagement.api.User;
 
 @Service
 public class BillDataservice {

@@ -2,7 +2,7 @@ package com.im.debtsmanagement.service.dao.proxy;
 
 import java.util.List;
 
-import com.im.debtsmanagement.model.ManagementObject;
+import com.im.debtsmanagement.api.ManagementObject;
 import com.im.debtsmanagement.service.modelcreator.ManagementObjectCreator;
 
 

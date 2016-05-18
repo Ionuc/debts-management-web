@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.im.debtsmanagement.model.User;
+import com.im.debtsmanagement.api.User;
 import com.im.debtsmanagement.service.dao.UserDataService;
+
+import static com.im.debtsmanagement.apihelpers.DebtsManagementConstants.LOGGED_USER;
 
 @Controller
 @SessionAttributes("user")
@@ -39,17 +41,11 @@ public class LoginController {
 	
 	@RequestMapping(params = "login", method = RequestMethod.POST)
 	public String loginPost(HttpServletRequest request, @Valid @ModelAttribute("user") User user, BindingResult result, SessionStatus status) {
-		logger.info("Login POST");
-		logger.info("UserName : ", user.getUsername());
-		logger.info("Password : ", user.getPassword());
-		
 		User registeredUser = userDataService.login(user.getUsername(), user.getPassword());
-		
-		logger.info("The registered  user is ", registeredUser);
-		
 		if (registeredUser != null)
 		{
-			return "redirect:/welcome.html";
+			request.getSession().setAttribute(LOGGED_USER, registeredUser);
+			return "redirect:/home.html";
 		}
 		return "login";
 	}

@@ -4,8 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.im.debtsmanagement.model.ManagementObject;
-import com.im.debtsmanagement.model.User;
+import com.im.debtsmanagement.api.ManagementObject;
+import com.im.debtsmanagement.api.User;
 import com.im.debtsmanagement.service.dao.proxy.ProxyConnector;
 import com.im.debtsmanagement.service.modelcreator.ManagementObjectCreator;
 

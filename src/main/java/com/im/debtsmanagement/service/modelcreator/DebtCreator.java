@@ -3,7 +3,7 @@ package com.im.debtsmanagement.service.modelcreator;
 import java.util.Arrays;
 import java.util.List;
 
-import com.im.debtsmanagement.model.Debt;
+import com.im.debtsmanagement.api.Debt;
 
 public class DebtCreator extends ManagementObjectCreator<Debt> {
 	@Override

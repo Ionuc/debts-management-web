@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.im.debtsmanagement.model.User;
+import com.im.debtsmanagement.api.User;
 import com.im.debtsmanagement.service.dao.UserDataService;
 
 @Controller

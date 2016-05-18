@@ -1,4 +1,4 @@
-package com.im.debtsmanagement.model;
+package com.im.debtsmanagement.api;
 
 public class User extends ManagementObject{
 
@@ -49,6 +49,10 @@ public class User extends ManagementObject{
 		this.age = age;
 	}
 	
+	public String getFullName()
+	{
+		return name + " " + surname;
+	}
 	@Override
 	public String toString()
 	{

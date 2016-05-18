@@ -1,4 +1,4 @@
-package com.im.debtsmanagement.model;
+package com.im.debtsmanagement.api;
 
 public abstract class ManagementObject {
 
