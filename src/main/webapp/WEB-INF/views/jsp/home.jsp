@@ -1,6 +1,8 @@
 <%@page import="com.im.debtsmanagement.api.User"%>
-<%@page import="com.im.debtsmanagement.apihelpers.DebtsManagementConstants"%>
+<%@page
+	import="com.im.debtsmanagement.apihelpers.DebtsManagementConstants"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +27,7 @@
 				<img alt="" src="http://lorempixel.com/100/100/people/9/">
 			</div>
 			<div class="card-info">
-				<span class="card-title"><%=((User)request.getSession().getAttribute(DebtsManagementConstants.LOGGED_USER)).getFullName()%></span>
+				<span class="card-title">Welcome <%=((User) request.getSession().getAttribute(DebtsManagementConstants.LOGGED_USER)).getFullName()%></span>
 
 			</div>
 		</div>
@@ -33,57 +35,19 @@
 			<nav class="navbar ">
 				<div class="container">
 					<div class="navbar-header">
-						
+						<button type="button" class="navbar-toggle collapsed">
+						</button>
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="#" class="">Home</a></li>
-							<li class=" dropdown"><a href="#" class="dropdown-toggle "
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">Departments <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li class=" dropdown"><a href="#" class="dropdown-toggle "
-										data-toggle="dropdown" role="button" aria-haspopup="true"
-										aria-expanded="false">View Departments</a></li>
-									<li><a href="#">Add New</a></li>
-								</ul></li>
-							<li><a href="#">Add New</a></li>
-							<li class=" dropdown"><a href="#" class="dropdown-toggle "
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">Managers <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="#">View Managers</a></li>
-									<li><a href="#">Add New</a></li>
-								</ul></li>
-							<li class=" dropdown"><a href="#"
-								class="dropdown-toggle active" data-toggle="dropdown"
-								role="button" aria-haspopup="true" aria-expanded="false">Staff
-									<span class="caret"></span>
-							</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">View Staff</a></li>
-									<li><a href="#">Add New</a></li>
-									<li><a href="#">Bulk Upload</a></li>
-								</ul></li>
-							<li class=" down"><a href="#" class="dropdown-toggle active"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">HR <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Change Time Entry</a></li>
-									<li><a href="#">Report</a></li>
-								</ul></li>
+							<li class="active"><a href="home.html" class="">Home</a></li>
+							<li class="active"><a href="profile.html" class="">My
+									profile</a></li>
+							<li class="active"><a href="debts.html" class="">Debts</a></li>
+
 						</ul>
 						<ul class="nav navbar-nav pull-right">
-							<li class=" dropdown"><a href="#"
-								class="dropdown-toggle active" data-toggle="dropdown"
-								role="button" aria-haspopup="true" aria-expanded="false">Signed
-									in as <span class="caret"></span>
-							</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Change Password</a></li>
-									<li><a href="#">My Profile</a></li>
-								</ul></li>
-							<li class=""><a href="#">Logout</a></li>
+							<li class=""><a href="<spring:url value="/logout.html"/>">Logout</a></li>
 						</ul>
 					</div>
 				</div>
