@@ -22,9 +22,14 @@
 		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
 
-    <welcome-file-list>
-        <welcome-file>welcome.html</welcome-file>
-    </welcome-file-list>
+	<servlet-mapping>
+		<servlet-name>debts-management-dispatcher</servlet-name>
+		<url-pattern>*.json</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>welcome.html</welcome-file>
+	</welcome-file-list>
 
 	<!-- For root context -->
 	<listener>
