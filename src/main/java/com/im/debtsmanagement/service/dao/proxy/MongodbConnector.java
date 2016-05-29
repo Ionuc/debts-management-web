@@ -40,7 +40,7 @@ public class MongodbConnector implements ProxyConnector {
 	}
 
 	@Override
-	public <OBJECT extends ManagementObject> OBJECT update(ManagementObjectCreator<OBJECT> managementObjectCreator,
+	public <OBJECT extends ManagementObject> void update(ManagementObjectCreator<OBJECT> managementObjectCreator,
 			String id, List<String> columnNames, List<String> columnValues, String tableName) {
 		MongoCollection<Document> collection = mongoDatabase.getCollection(tableName);
 
@@ -49,8 +49,6 @@ public class MongodbConnector implements ProxyConnector {
 		Document filter = new Document();
 		filter.append("_id", id);
 		collection.updateOne(filter, document);
-
-		return get(managementObjectCreator, tableName, "_id", String.valueOf(id));
 	}
 
 	@Override
@@ -61,24 +59,25 @@ public class MongodbConnector implements ProxyConnector {
 	}
 
 	@Override
-	public <OBJECT extends ManagementObject> OBJECT get(ManagementObjectCreator<OBJECT> managementObjectCreator,
+	public <OBJECT extends ManagementObject> List<OBJECT> get(ManagementObjectCreator<OBJECT> managementObjectCreator,
 			String tableName, String columnName, String columnValue) {
 		MongoCollection<Document> collection = mongoDatabase.getCollection(tableName);
 		Document document = createDocument(Arrays.asList(columnName), Arrays.asList(columnValue));
-		Document found = collection.find(document).first();
+		Iterable<Document> found = collection.find(document);
+		final List<OBJECT> objects = new ArrayList<>();
 		if (found == null)
 		{
-			return null;
+			return objects;
 		}
-		return createObject(found, managementObjectCreator);
+		found.spliterator().forEachRemaining(d -> objects.add(createObject(d, managementObjectCreator)));
+		return objects;
 	}
 
 	@Override
 	public <OBJECT extends ManagementObject> List<OBJECT> getAll(
-			ManagementObjectCreator<OBJECT> managementObjectCreator, String tableName, String columnName,
-			String columnValue) {
+			ManagementObjectCreator<OBJECT> managementObjectCreator, String tableName) {
 		MongoCollection<Document> collection = mongoDatabase.getCollection(tableName);
-		Document document = createDocument(Arrays.asList(columnName), Arrays.asList(columnValue));
+		Document document = createDocument(new ArrayList<String>(), new ArrayList<String>());
 		List<OBJECT> objects = new ArrayList<OBJECT>();
 		for (Document doc : collection.find(document)) {
 			objects.add(createObject(doc, managementObjectCreator));

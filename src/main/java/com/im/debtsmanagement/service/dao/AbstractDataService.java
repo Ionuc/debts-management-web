@@ -26,19 +26,17 @@ public abstract class AbstractDataService<OBJECT extends ManagementObject> {
 
 	protected abstract ProxyConnector getProxyConnector();
 	
-	protected OBJECT create(OBJECT object, List<String> columnNames, List<String> columnValues, User loggedUser) {
+	protected void create(OBJECT object, List<String> columnNames, List<String> columnValues, User loggedUser) {
 
-		OBJECT created = getProxyConnector().create(managementObjectCreator, columnNames, columnValues, tableName);
+		getProxyConnector().create(managementObjectCreator, columnNames, columnValues, tableName);
 //		fileDataService.writeCreateInfo(object, tableName, loggedUser, classCaller);
-		return created;
 	}
 
-	protected OBJECT update(OBJECT oldObject, OBJECT newObject, List<String> columnNames, List<String> columnValues,
+	protected void update(OBJECT oldObject, OBJECT newObject, List<String> columnNames, List<String> columnValues,
 			User loggedUser) {
-		OBJECT updated = getProxyConnector().update(managementObjectCreator, newObject.getId(), columnNames, columnValues,
+		getProxyConnector().update(managementObjectCreator, newObject.getId(), columnNames, columnValues,
 				tableName);
 //		fileDataService.writeUpdateInfo(oldObject, newObject, tableName, loggedUser, classCaller);
-		return updated;
 	}
 
 	protected void delete(String tableName, String id, User loggedUser) {
@@ -47,7 +45,8 @@ public abstract class AbstractDataService<OBJECT extends ManagementObject> {
 	}
 
 	protected OBJECT get(String tableName, String columnName, String columnValue) {
-		return getProxyConnector().get(managementObjectCreator, tableName, columnName, columnValue);
+		List<OBJECT> lists = getProxyConnector().get(managementObjectCreator, tableName, columnName, columnValue);
+		return lists.stream().findFirst().orElse(null);
 	}
 
 	public OBJECT get(String id) {
@@ -55,7 +54,7 @@ public abstract class AbstractDataService<OBJECT extends ManagementObject> {
 	}
 
 	public List<OBJECT> getAll() {
-		return getProxyConnector().getAll(managementObjectCreator, tableName, null, null);
+		return getProxyConnector().getAll(managementObjectCreator, tableName);
 	}
 
 	public OBJECT delete(String id, User loggedUser) {

@@ -11,16 +11,16 @@ public interface ProxyConnector {
 	<OBJECT extends ManagementObject> OBJECT create(ManagementObjectCreator<OBJECT> managementObjectCreator,
 			List<String> columnNames, List<String> columnValues, String tableName);
 
-	<OBJECT extends ManagementObject> OBJECT update(ManagementObjectCreator<OBJECT> managementObjectCreator,
+	<OBJECT extends ManagementObject> void update(ManagementObjectCreator<OBJECT> managementObjectCreator,
 			String id, List<String> columnNames, List<String> columnValues, String tableName);
 
 	void delete(String tableName, String id);
 
-	<OBJECT extends ManagementObject> OBJECT get(ManagementObjectCreator<OBJECT> managementObjectCreator,
+	<OBJECT extends ManagementObject> List<OBJECT> get(ManagementObjectCreator<OBJECT> managementObjectCreator,
 			String tableName, String columnName, String columnValue);
 
 	<OBJECT extends ManagementObject> List<OBJECT> getAll(ManagementObjectCreator<OBJECT> managementObjectCreator,
-			String tableName, String columnName, String columnValue);
+			String tableName);
 
 	String getType();
 }

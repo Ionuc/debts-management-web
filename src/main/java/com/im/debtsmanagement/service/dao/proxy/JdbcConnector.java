@@ -5,10 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 
 import com.im.debtsmanagement.api.ManagementObject;
 import com.im.debtsmanagement.connection.JdbcConnectionFactory;
@@ -48,7 +46,8 @@ public class JdbcConnector implements ProxyConnector {
 		try {
 			ResultSet generatedKeys = stmt.getGeneratedKeys();
 			if (generatedKeys.next()) {
-				return get(creator, tableName, "id", String.valueOf(generatedKeys.getLong(1)));
+				List<OBJECT> objects = get(creator, tableName, "id", String.valueOf(generatedKeys.getLong(1)));
+				return objects.stream().findFirst().orElse(null);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -68,7 +67,7 @@ public class JdbcConnector implements ProxyConnector {
 	}
 
 	@Override
-	public <OBJECT extends ManagementObject> OBJECT update(ManagementObjectCreator<OBJECT> creator, String id,
+	public <OBJECT extends ManagementObject> void update(ManagementObjectCreator<OBJECT> creator, String id,
 			List<String> columnNames, List<String> columnValues, String tableName) {
 		StringBuilder strBuilder = new StringBuilder("Update `" + tableName + "` set ");
 
@@ -92,7 +91,6 @@ public class JdbcConnector implements ProxyConnector {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return get(creator, tableName, "id", String.valueOf(id));
 	}
 
 	@Override
@@ -113,10 +111,11 @@ public class JdbcConnector implements ProxyConnector {
 	}
 
 	@Override
-	public <OBJECT extends ManagementObject> OBJECT get(ManagementObjectCreator<OBJECT> creator, String tableName,
+	public <OBJECT extends ManagementObject> List<OBJECT> get(ManagementObjectCreator<OBJECT> creator, String tableName,
 			String columnName, String columnValue) {
 		Statement stmt;
 		ResultSet rs = null;
+		List<OBJECT> objects = new ArrayList<>();
 		try {
 			stmt = conn.createStatement();
 			String statementString = "Select * from " + tableName + columnName != null && columnValue != null
@@ -128,19 +127,20 @@ public class JdbcConnector implements ProxyConnector {
 				for (String field : creator.getAllFields()) {
 					creator.setValue(object, field, rs.getObject(field));
 				}
-				return object;
+				objects.add(object);
+				return objects;
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return objects;
 
 	}
 
 	@Override
 	public <OBJECT extends ManagementObject> List<OBJECT> getAll(ManagementObjectCreator<OBJECT> creator,
-			String tableName, String columnName, String columnValue) {
+			String tableName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
