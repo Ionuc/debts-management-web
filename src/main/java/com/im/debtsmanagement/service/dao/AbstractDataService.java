@@ -13,7 +13,6 @@ import com.im.debtsmanagement.service.modelcreator.ManagementObjectCreator;
 public abstract class AbstractDataService<OBJECT extends ManagementObject> {
 	protected final String tableName;
 	protected final String classCaller;
-//	private final FileDataService fileDataService;
 	protected final ManagementObjectCreator<OBJECT> managementObjectCreator;
 
 	public AbstractDataService(ManagementObjectCreator<OBJECT> managementObjectCreator,
@@ -21,27 +20,22 @@ public abstract class AbstractDataService<OBJECT extends ManagementObject> {
 		this.tableName = tableName;
 		this.managementObjectCreator = managementObjectCreator;
 		this.classCaller = classCaller;
-//		fileDataService = FileDataServiceFactory.getFileDataService();
 	}
 
 	protected abstract ProxyConnector getProxyConnector();
 	
-	protected void create(OBJECT object, List<String> columnNames, List<String> columnValues, User loggedUser) {
+	protected void create(OBJECT object, List<String> columnNames, List<String> columnValues) {
 
 		getProxyConnector().create(managementObjectCreator, columnNames, columnValues, tableName);
-//		fileDataService.writeCreateInfo(object, tableName, loggedUser, classCaller);
 	}
 
-	protected void update(OBJECT oldObject, OBJECT newObject, List<String> columnNames, List<String> columnValues,
-			User loggedUser) {
+	protected void update(OBJECT oldObject, OBJECT newObject, List<String> columnNames, List<String> columnValues) {
 		getProxyConnector().update(managementObjectCreator, newObject.getId(), columnNames, columnValues,
 				tableName);
-//		fileDataService.writeUpdateInfo(oldObject, newObject, tableName, loggedUser, classCaller);
 	}
 
-	protected void delete(String tableName, String id, User loggedUser) {
+	protected void delete(String tableName, String id) {
 		getProxyConnector().delete(tableName, id);
-//		fileDataService.writeDeleteInfo(String.valueOf(id), tableName, loggedUser, tableName);
 	}
 
 	protected OBJECT get(String tableName, String columnName, String columnValue) {
@@ -57,17 +51,17 @@ public abstract class AbstractDataService<OBJECT extends ManagementObject> {
 		return getProxyConnector().getAll(managementObjectCreator, tableName);
 	}
 
-	public OBJECT delete(String id, User loggedUser) {
+	public OBJECT delete(String id) {
 		OBJECT object = get(id);
 		if (object != null) {
-			delete(tableName, id, loggedUser);
+			delete(tableName, id);
 		}
 		return object;
 	}
 
-	public abstract void create(OBJECT object, User loggedUser);
+	public abstract void create(OBJECT object);
 
-	public abstract void update(OBJECT oldObject, OBJECT newObject, User loggedUser);
+	public abstract void update(OBJECT oldObject, OBJECT newObject);
 
 	protected abstract OBJECT retrieveFrom(ResultSet rs) throws SQLException;
 }

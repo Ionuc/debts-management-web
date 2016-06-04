@@ -43,7 +43,7 @@ public class RegisterController {
 		logger.info("UserName : ", user.getUsername());
 		logger.info("Password : ", user.getPassword());
 		
-		userDataService.create(user, null);
+		userDataService.create(user);
 		
 		logger.info("User was created");
 		

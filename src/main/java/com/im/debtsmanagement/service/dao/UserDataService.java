@@ -55,7 +55,7 @@ public class UserDataService extends AbstractDataService<User> {
 	}
 
 	@Override
-	public void create(User user, User loggedUser) {
+	public void create(User user) {
 		List<String> columnNames = new ArrayList<String>();
 		columnNames.add("username");
 		columnNames.add("password");
@@ -72,11 +72,11 @@ public class UserDataService extends AbstractDataService<User> {
 		columnValues.add(String.valueOf(user.getAge()));
 		columnValues.add(user.isAdministrator() ? "1" : "0");
 
-		create(user, columnNames, columnValues, loggedUser);
+		create(user, columnNames, columnValues);
 	}
 
 	@Override
-	public void update(User oldObject, User newObject, User loggedUser) {
+	public void update(User oldObject, User newObject) {
 		List<String> columnNames = new ArrayList<String>();
 		columnNames.add("username");
 		columnNames.add("password");
@@ -93,7 +93,7 @@ public class UserDataService extends AbstractDataService<User> {
 		columnValues.add(String.valueOf(newObject.getAge()));
 		columnValues.add(newObject.isAdministrator() ? "1" : "0");
 
-		update(oldObject, newObject, columnNames, columnValues, loggedUser);
+		update(oldObject, newObject, columnNames, columnValues);
 
 	}
 

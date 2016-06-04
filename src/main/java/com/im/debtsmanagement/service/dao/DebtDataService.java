@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.im.debtsmanagement.api.Debt;
-import com.im.debtsmanagement.api.User;
 import com.im.debtsmanagement.service.dao.proxy.ProxyConnector;
 import com.im.debtsmanagement.service.modelcreator.DebtCreator;
 
@@ -35,7 +34,7 @@ public class DebtDataService extends AbstractDataService<Debt> {
 	}
 
 	@Override
-	public void create(Debt debt, User loggedUser) {
+	public void create(Debt debt) {
 		List<String> columnNames = new ArrayList<String>();
 		columnNames.add("id");
 		columnNames.add("fromUsername");
@@ -52,7 +51,7 @@ public class DebtDataService extends AbstractDataService<Debt> {
 		columnValues.add(debt.getDescription());
 		columnValues.add(DATE_FORMAT.format(debt.getDate()));
 
-		create(debt, columnNames, columnValues, loggedUser);
+		create(debt, columnNames, columnValues);
 	}
 
 	@Override
@@ -68,7 +67,7 @@ public class DebtDataService extends AbstractDataService<Debt> {
 	}
 
 	@Override
-	public void update(Debt oldObject, Debt newObject, User loggedUser) {
+	public void update(Debt oldObject, Debt newObject) {
 		List<String> columnNames = new ArrayList<String>();
 		columnNames.add("fromUsername");
 		columnNames.add("toUsername");
@@ -81,10 +80,10 @@ public class DebtDataService extends AbstractDataService<Debt> {
 		columnValues.add(newObject.getValue().toString());
 		columnValues.add(newObject.getDescription());
 
-		update(oldObject, newObject, columnNames, columnValues, loggedUser);
+		update(oldObject, newObject, columnNames, columnValues);
 	}
 
-	public void optimizeDebts(User loggedUser) {
+	public void optimizeDebts() {
 		Map<String, Debt> debts = getDebtsMap(getAll());
 
 		if (debts.size() < 3) {
@@ -95,11 +94,11 @@ public class DebtDataService extends AbstractDataService<Debt> {
 
 		for (Debt newDebt : optimezedDebts) {
 			if (newDebt.getValue().compareTo(BigDecimal.ZERO) == 0) {
-				delete(newDebt.getId(), loggedUser);
+				delete(newDebt.getId());
 			} else {
 				Debt oldDebt = debts.get(newDebt.getId());
 				if (oldDebt.getValue().compareTo(newDebt.getValue()) != 0) {
-					update(oldDebt, newDebt, loggedUser);
+					update(oldDebt, newDebt);
 				}
 
 			}

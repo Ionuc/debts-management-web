@@ -34,7 +34,7 @@ public class BillDataservice {
 			debt.setToUsername(bill.getOwner());
 			debt.setValue(valuePerUser);
 			debt.setDate(bill.getDate());
-			debtDataService.create(debt, loggedUser);
+			debtDataService.create(debt);
 		}
 	}
 
