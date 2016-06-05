@@ -13,7 +13,6 @@
 </head>
 
 <body>
-		WELCOME TO DEBTS MANAGEMENT
 	<div class="container">
 		<div class="row" id="pwd-container">
 			<div class="col-md-4"></div>

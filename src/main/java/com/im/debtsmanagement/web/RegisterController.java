@@ -37,7 +37,7 @@ public class RegisterController {
 		return "register";
 	}
 	
-	@RequestMapping(params = "register", method = RequestMethod.POST)
+	@RequestMapping(params = "/register", method = RequestMethod.POST)
 	public String registerPost(HttpServletRequest request, @Valid @ModelAttribute("user") User user, BindingResult result, SessionStatus status) {
 		logger.info("Login POST");
 		logger.info("UserName : ", user.getUsername());

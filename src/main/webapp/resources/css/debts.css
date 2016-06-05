@@ -8,3 +8,25 @@
 	background-color: rgba(255, 255, 255, 0.1);
 	border-radius: 4px;
 }
+
+.debts-buttons {
+	position: relative;
+	margin-left: 15%;
+	margin-right: 50%;
+	font-size: 20px;
+	line-height: 1;
+	color: #262626;
+	border-radius: 4px;
+}
+.left-button {
+	position: relative;
+	margin-top: 0%;
+	margin-left: 0%;
+	margin-right: 60%;
+}
+.right-button {
+	position: relative;
+	margin-top: -11%;
+	margin-left: 50%;
+	margin-right: 10%;
+}

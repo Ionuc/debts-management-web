@@ -57,16 +57,40 @@
 				</div>
 			</nav>
 		</div>
+		<div class="debts-buttons">
+			<div class="left-button">
+				<form:form method="POST">
+					<div class="form-group ">
+						<input type="submit" name="createDebt" value="Create Debt"
+							class="login-button btn btn-primary btn-lg btn-block  ">
+					</div>
+				</form:form>
+			</div>
+			<div class="right-button">
+				<form:form method="POST">
+					<div class="form-group ">
+						<input type="submit" name="createBill" value="Create Bill"
+							class="login-button btn btn-primary btn-lg btn-block  ">
+					</div>
+				</form:form>
+			</div>
+		</div>
+
 		<div class="debts-table">
-			<table data-toggle="table" data-url="http://localhost:9000/DebtsManagementWeb/allDebts.json">
+			<table id="events-table" data-toggle="table"
+				data-url="http://localhost:9000/DebtsManagementWeb/allDebts.json"
+				data-search="true" data-sortable="true" data-show-toggle="true"
+				data-show-columns="true" data-pagination="true">
 				<thead>
 					<tr>
-						<th data-field="id">Item ID</th>
-						<th data-field="toUsername">To</th>
-						<th data-field="fromUsername">From</th>
-						<th data-field="value">Value</th>
-						<th data-field="description">Description</th>
-						<th data-field="date">Date</th>
+						<th data-sortable="true" data-field="id" data-visible="false">Id</th>
+						<th data-sortable="true" data-field="toUsername">To</th>
+						<th data-sortable="true" data-field="fromUsername">From</th>
+						<th data-sortable="true" data-field="value">Value</th>
+						<th data-sortable="true" data-field="description">Description</th>
+						<th data-sortable="true" data-field="date">Date</th>
+						<th data-field="operate" data-formatter="operateFormatter"
+							data-events="operateEvents"></th>
 					</tr>
 				</thead>
 			</table>
@@ -78,6 +102,7 @@
 		src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 	<script
 		src="<%=request.getContextPath()%>/resources/js/bootstrap-table.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/debts.js"></script>
 
 </body>
 </html>
