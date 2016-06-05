@@ -44,13 +44,8 @@ public class DebtsController {
 		return debtDataService.getAll();
 	}
 
-	@RequestMapping(params = "createDebt", method = RequestMethod.POST)
+	@RequestMapping(params = "goToDebts", method = RequestMethod.POST)
 	public String createDebt(HttpServletRequest request) {
-		return "redirect:/debt.html";
-	}
-
-	@RequestMapping(params = "createBill", method = RequestMethod.POST)
-	public String createBill(HttpServletRequest request) {
-		return "redirect:/bill.html";
+		return "redirect:/debts.html";
 	}
 }

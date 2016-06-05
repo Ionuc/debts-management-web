@@ -61,7 +61,7 @@
 			<div class="left-button">
 				<form:form method="POST">
 					<div class="form-group ">
-						<input type="submit" name="createDebt" value="Create Debt"
+						<input type="submit" name="goToCreateDebt" value="Create Debt"
 							class="login-button btn btn-primary btn-lg btn-block  ">
 					</div>
 				</form:form>
@@ -69,7 +69,7 @@
 			<div class="right-button">
 				<form:form method="POST">
 					<div class="form-group ">
-						<input type="submit" name="createBill" value="Create Bill"
+						<input type="submit" name="goToCreateBill" value="Create Bill"
 							class="login-button btn btn-primary btn-lg btn-block  ">
 					</div>
 				</form:form>
@@ -78,7 +78,7 @@
 
 		<div class="debts-table">
 			<table id="events-table" data-toggle="table"
-				data-url="http://localhost:9000/DebtsManagementWeb/allDebts.json"
+				data-url=<spring:url value="allDebts.json"/>
 				data-search="true" data-sortable="true" data-show-toggle="true"
 				data-show-columns="true" data-pagination="true">
 				<thead>
