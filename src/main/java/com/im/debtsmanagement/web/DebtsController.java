@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,7 +32,7 @@ public class DebtsController {
 	}
 
 	@RequestMapping(value = "/debts", method = RequestMethod.GET)
-	public String index(HttpServletRequest request) {
+	public String debtsGet(HttpServletRequest request) {
 		User loggedUser = (User) request.getSession().getAttribute(LOGGED_USER);
 		if (loggedUser == null) {
 			return "redirect:/welcome.html";
@@ -45,7 +46,13 @@ public class DebtsController {
 	}
 
 	@RequestMapping(params = "goToDebts", method = RequestMethod.POST)
-	public String createDebt(HttpServletRequest request) {
+	public String goToDebts(HttpServletRequest request) {
+		return "redirect:/debts.html";
+	}
+
+	@RequestMapping(value = "/removeDebt/{debtId}", method = RequestMethod.GET)
+	public String removeDebt(@PathVariable("debtId") String debtId) {
+		debtDataService.delete(debtId);
 		return "redirect:/debts.html";
 	}
 }

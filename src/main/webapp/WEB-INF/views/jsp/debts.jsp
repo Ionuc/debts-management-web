@@ -78,8 +78,8 @@
 
 		<div class="debts-table">
 			<table id="events-table" data-toggle="table"
-				data-url=<spring:url value="allDebts.json"/>
-				data-search="true" data-sortable="true" data-show-toggle="true"
+				data-url=<spring:url value="allDebts.json"/> data-search="true"
+				data-sortable="true" data-show-toggle="true"
 				data-show-columns="true" data-pagination="true">
 				<thead>
 					<tr>
@@ -102,7 +102,15 @@
 		src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 	<script
 		src="<%=request.getContextPath()%>/resources/js/bootstrap-table.js"></script>
-	<script src="<%=request.getContextPath()%>/resources/js/debts.js"></script>
 
+	<script type="text/javascript">
+		function operateFormatter(value, row, index) {
+			var origin = window.location.origin
+			var projectName = window.location.pathname.split("/")[1]
+			var href = origin + '/' + projectName + '/removeDebt/' + row.id
+			return [ '<a class="like" href="' + href +'" title="Pay Debt">',
+					'Pay', '</a>' ].join('');
+		}
+	</script>
 </body>
 </html>
