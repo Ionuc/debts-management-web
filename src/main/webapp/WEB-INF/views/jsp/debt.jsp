@@ -10,6 +10,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/register.css" />
+	<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/debt.css" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" />
 
@@ -39,7 +41,7 @@
 				</div>
 			</div>
 			<div class="main-login main-center">
-				<form class="form-horizontal" method="post" action="#">
+				<form class="form-horizontal" method="post">
 					<form:form method="POST" action="createDebt" modelAttribute="debt">
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label"> To
@@ -50,7 +52,10 @@
 										class="fa fa-user fa" aria-hidden="true"></i>
 									</span>
 									<form:select id="toUsernameSelectPickerId" path="toUsername"
-										cssClass="form-control"></form:select>
+										cssClass="form-control" name="toUsername" />
+									<div class="has-error">
+										<form:errors path="toUsername" class="errorText error " />
+									</div>
 								</div>
 							</div>
 						</div>
@@ -64,7 +69,10 @@
 										class="fa fa-user fa" aria-hidden="true"></i>
 									</span>
 									<form:select id="fromUsernameSelectPickerId"
-										path="fromUsername" cssClass="form-control"></form:select>
+										path="fromUsername" name="fromUsername" class="form-control" />
+									<div class="has-error">
+										<form:errors path="fromUsername" class="errorText error " />
+									</div>
 								</div>
 							</div>
 						</div>
@@ -77,7 +85,11 @@
 										class="fa fa-user fa" aria-hidden="true"></i>
 									</span>
 									<form:input path="value" placeholder="Enter Value"
-										cssClass="form-control" />
+										cssClass="form-control" name="value"
+										data-error="Bruh, that email address is invalid" />
+									<div class="has-error">
+										<form:errors path="value" class="errorText error " />
+									</div>
 								</div>
 							</div>
 						</div>
@@ -90,33 +102,40 @@
 									<span class="input-group-addon"> <i
 										class="fa fa-user fa" aria-hidden="true"></i>
 									</span>
-									<form:input path="description" placeholder="Enter Description"
-										cssClass="form-control" />
+									<form:textarea path="description"
+										placeholder="Enter Description" cssClass="form-control"
+										name="description" />
+									<div class="has-error">
+										<form:errors path="description" class="errorText error " />
+									</div>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="email" class="cols-sm-2 control-label"> Date</label>
-							<div class="cols-sm-10">
+							<div class="cols-sm-10" >
 
 								<div class='input-group date' id='datetimepicker1'>
 									<span class="input-group-addon"> <i
 										class="fa fa-calendar fa" aria-hidden="true"></i>
 									</span>
 									<form:input path="date" placeholder="Select Date"
-										cssClass="form-control" />
+										cssClass="form-control" name="date" />
+									<div class="has-error textFiled">
+										<form:errors path="date" class="errorText " />
+									</div>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group ">
 							<input type="submit" name="createDebt" value="Create"
-								class="login-button btn btn-primary btn-lg btn-block  ">
+								class="btn btn-primary btn-lg btn-block  ">
 						</div>
 						<div class="form-group ">
 							<input type="submit" name="goToDebts" value="Back"
-								class="login-button btn btn-primary btn-lg btn-block login-button">
+								class="btn btn-primary btn-lg btn-block login-button">
 						</div>
 					</form:form>
 				</form>
@@ -132,6 +151,7 @@
 	<script src="<%=request.getContextPath()%>/resources/js/moment.min.js"></script>
 	<script
 		src="<%=request.getContextPath()%>/resources/js/bootstrap-datetimepicker.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/validator.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/debt.js"></script>
 
 </body>

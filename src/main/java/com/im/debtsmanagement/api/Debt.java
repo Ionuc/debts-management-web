@@ -3,12 +3,29 @@ package com.im.debtsmanagement.api;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
+import org.springframework.format.annotation.NumberFormat;
+import org.springframework.format.annotation.NumberFormat.Style;
+
 public class Debt  extends ManagementObject{
 
+	@NotNull
+	@NotEmpty
 	private String toUsername;
+	@NotNull
+	@NotEmpty
 	private String fromUsername;
+	@NumberFormat(style=Style.NUMBER)
+	@NotNull
+	@Range(min=0)
 	private BigDecimal value;
+	@NotNull
+	@NotEmpty
 	private String description;
+	@NotNull
 	private Date date;
 
 	public String getToUsername() {

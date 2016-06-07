@@ -47,19 +47,23 @@ public class DebtController {
 	}
 
 	@RequestMapping(params = "goToCreateDebt", method = RequestMethod.POST)
-	public String createDebt(HttpServletRequest request) {
+	public String goToCreateDebt(HttpServletRequest request) {
 		return "redirect:/debt.html";
 	}
 
 	@RequestMapping(params = "createDebt", method = RequestMethod.POST)
-	public String debtPost(HttpServletRequest request, @Valid @ModelAttribute("debt") Debt debt, BindingResult result,
+	public String createDebt(HttpServletRequest request, @Valid @ModelAttribute("debt") Debt debt, BindingResult result,
 			SessionStatus status) {
+		if(result.hasErrors())
+		{
+			return "debt";
+		}
 		debtDataService.create(debt);
 		return "redirect:/debts.html";
 	}
 
 	@RequestMapping(value = "/allUsers", method = RequestMethod.GET)
-	public @ResponseBody List<User> findAllDebts() {
+	public @ResponseBody List<User> findAllUsers() {
 		return userDataService.getAll();
 	}
 }
