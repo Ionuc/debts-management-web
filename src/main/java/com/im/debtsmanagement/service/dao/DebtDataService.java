@@ -30,7 +30,7 @@ public class DebtDataService extends AbstractDataService<Debt> {
 	private ProxyConnector proxyConnector;
 	
 	public DebtDataService() {
-		super(new DebtCreator(), DebtDataService.class.getSimpleName(), TABLE_NAME);
+		super(new DebtCreator(), TABLE_NAME);
 	}
 
 	@Override

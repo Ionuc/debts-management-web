@@ -5,21 +5,17 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.im.debtsmanagement.api.ManagementObject;
-import com.im.debtsmanagement.api.User;
 import com.im.debtsmanagement.service.dao.proxy.ProxyConnector;
 import com.im.debtsmanagement.service.modelcreator.ManagementObjectCreator;
 
 
 public abstract class AbstractDataService<OBJECT extends ManagementObject> {
 	protected final String tableName;
-	protected final String classCaller;
 	protected final ManagementObjectCreator<OBJECT> managementObjectCreator;
 
-	public AbstractDataService(ManagementObjectCreator<OBJECT> managementObjectCreator,
-			String classCaller, String tableName) {
+	public AbstractDataService(ManagementObjectCreator<OBJECT> managementObjectCreator, String tableName) {
 		this.tableName = tableName;
 		this.managementObjectCreator = managementObjectCreator;
-		this.classCaller = classCaller;
 	}
 
 	protected abstract ProxyConnector getProxyConnector();
@@ -44,7 +40,7 @@ public abstract class AbstractDataService<OBJECT extends ManagementObject> {
 	}
 
 	public OBJECT get(String id) {
-		return get(tableName, "id", String.valueOf(id));
+		return get(tableName, "_id", String.valueOf(id));
 	}
 
 	public List<OBJECT> getAll() {

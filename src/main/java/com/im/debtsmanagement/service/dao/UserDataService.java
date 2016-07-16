@@ -23,7 +23,7 @@ public class UserDataService extends AbstractDataService<User> {
 	private ProxyConnector proxyConnector;
 	
 	public UserDataService() {
-		super( new UserCreator(), UserDataService.class.getSimpleName(), TABLE_NAME);
+		super( new UserCreator(), TABLE_NAME);
 	}
 
 	public User login(String username, String password) {
